@@ -1,0 +1,13 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: postgres:9.5.14
+    restart: always
+    volumes:
+      - ./HW1/lahman.pgdump.gz:/docker-entrypoint-initdb.d/init.sql.gz
+      - ./HW1:/home
+    environment:
+      POSTGRES_PASSWORD: mavu
+      POSTGRES_USER: postgres
